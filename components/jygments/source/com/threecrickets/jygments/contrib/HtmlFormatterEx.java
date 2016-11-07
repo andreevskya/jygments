@@ -29,7 +29,7 @@ public class HtmlFormatterEx extends Formatter {
 
 	@Override
 	public void format(Iterable<Token> tokenSource, Writer writer) throws IOException {
-		writer.write("<div><pre><code>\n");
+		writer.write("<div class=\"highlight\"><pre><code>\n");
 		StringBuilder line = new StringBuilder();
 		List<String> lineList = new ArrayList<String>();
 		for(Token token : tokenSource) {
@@ -80,13 +80,7 @@ public class HtmlFormatterEx extends Formatter {
 
 	public void getStyleSheet(Writer writer) throws IOException {
 		writer.write("<style type=\"text/css\">\n");
-		writer.write("    .highlight pre {\n");
-		writer.write("        word-wrap: normal;\n");
-		writer.write("    }\n");
-		writer.write("    .highlight pre code {\n");
-		writer.write("        white-space: pre;\n");
-		writer.write("    }\n");
-		writer.write("    span.lineno { background-color: #f0f0f0; padding: 0 5px 0 5px; }\n    pre { line-height: 125%; }\n");
+		writer.write("    span.lineno {padding: 0 5px 0 5px; }\n    pre { line-height: 125%; }\n");
 		formatStyleSheet(writer);
 		writer.write("</style>\n");
 		writer.flush();
